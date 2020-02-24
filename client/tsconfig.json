@@ -1,0 +1,13 @@
+{
+    "include": [
+        "src/*"
+    ],
+    "compilerOptions": {
+		"types": ["browser", "react"],
+        "target": "es6",
+        "jsx": "react",
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": false,
+		"lib": ["DOM"]
+    }
+}
