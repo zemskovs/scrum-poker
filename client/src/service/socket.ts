@@ -1,9 +1,11 @@
-import * as io from "socket.io-client"
-
-class MessageManager {
-	io = io('http://localhost:3000')
+import * as io from 'socket.io-client';
 
 
+export class MessageManager {
+	socket = io.connect('http://localhost:3000');
+
+	startSession() {
+		this.socket.emit("startSession")
+	}
 }
 
-export const messageManager = new MessageManager();

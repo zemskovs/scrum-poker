@@ -1,7 +1,4 @@
 {
-    "include": [
-        "src/*"
-    ],
     "compilerOptions": {
 		"types": ["browser", "react"],
         "target": "es6",
