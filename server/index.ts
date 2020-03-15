@@ -1,13 +1,5 @@
-import * as http from "http"
-import * as socketIo from "socket.io"
-import { socketEvents } from "./socket";
+import { apiServer } from "./api";
+import { wsServer } from "./socket";
 
-const server = http.createServer();
-
-const io = socketIo(server);
-
-io.on("connection", (socket) => {
-	socketEvents(socket)
-})
-
-server.listen(3000);
+apiServer.listen(3000);
+wsServer.listen(3001);

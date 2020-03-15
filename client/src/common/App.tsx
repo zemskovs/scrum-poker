@@ -12,22 +12,31 @@ import {
 import { Framework7Params } from "framework7/components/app/app-class";
 import { Router } from "framework7/modules/router/router";
 import { MainPage } from "../pages/MainPage";
+import { ApiClient } from "../service/apiClient";
+import { TeamRoomPage } from "../pages/TeamRoomPage";
 
 Framework7.use(Framework7React);
 
 const f7params: Framework7Params = {
-	name: "Scrum poker"
+	name: "Scrum poker",
+	routes: [
+		{
+			path: "/",
+			component: MainPage
+		},
+		{
+			path: "/team/:teamId/:teamName",
+			component: TeamRoomPage
+		}
+	]
 };
 
-const routes: Router.RouteParameters[] = [{
-	path: "/",
-	component: MainPage
-}];
+export const apiClient = new ApiClient();
 
 export const App: React.FC = () => {
 	return (
-		<FwApp params={f7params} routes={routes}>
-			<View main url="/" />
+		<FwApp params={f7params} >
+			<View main url="/" pushState/>
 		</FwApp>
 	);
 };
