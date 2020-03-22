@@ -10,11 +10,12 @@ class WsServer {
             ws.on('message', (message) => {
               console.log('received: %s', message);
               if (message === "startVoiting") {
-                  this.clients.forEach(client => {
-                      if (client !== ws) {
-                          client.send("voitingWasStarted")
-                      }
-                  })
+                //   this.clients.forEach(client => {
+                //       if (client !== ws) {
+                //           client.send("voitingWasStarted")
+                //       }
+				//   })
+				ws.send("voitingWasStarted")
               }
             });
         });
