@@ -1,11 +1,17 @@
-import * as io from 'socket.io-client';
-
+type Event = string;
 
 export class MessageManager {
-	// socket = io.connect('http://localhost:3000');
+	ws = new WebSocket("ws://localhost:3001");
 
-	// startSession() {
-	// 	this.socket.emit("startSession")
-	// }
+	subscribe(eventMessage: Event, cb: () => void) {
+		this.ws.onmessage = event => {
+			if (event.data === eventMessage) {
+				cb();
+			}
+		};
+	}
+
+	emit(eventMessage: Event) {
+		this.ws.send(eventMessage)
+	}
 }
-
