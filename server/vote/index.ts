@@ -5,6 +5,7 @@ class VoteManager {
 	private cards = [1, 3, 5, 8, 13];
 
 	setVote(data: VoteData) {
+		console.log("VOTEDATA", data)
 		this.data.push(data);
 	}
 
